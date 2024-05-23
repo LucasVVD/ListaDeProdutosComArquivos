@@ -27,5 +27,10 @@ namespace ListaDeProdutosComArquivos.Entities
         {
             return (double)ProdPrice * Quantity;
         }
+
+        public string RandomId()
+        {
+            return Guid.NewGuid().ToString();
+        }
     }
 }
