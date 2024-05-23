@@ -149,7 +149,7 @@ namespace ListaDeProdutosComArquivos.Menus
                 Console.WriteLine(e.Message);
             }
         }
-        // comentario
+
         private static void AddProduct(string path)
         {
             Console.Write("Quantidade de produtos à ser adicionados: ");
@@ -175,6 +175,16 @@ namespace ListaDeProdutosComArquivos.Menus
                 using (StreamWriter sw = new(path))
                 {
                     int countProd = 1;
+                    if (path.Contains(".csv"))
+                    {
+                        sw.WriteLine("Nome;Preço;Quantidade;Categoria;Horário de registro;Preço total em estoque");
+                        foreach (Products prod in products)
+                        {
+                            sw.WriteLine($"{prod.ProdName};R${prod.ProdPrice:F2};{prod.Quantity};{prod.ProdCategory};{prod.AddLog:yyyy/MM/dd HH:mm:ss};R${prod.TotalPrice():F2}");
+                        }
+                    }
+                    else
+                    {
                     foreach (Products prod in products)
                     {
                         sw.WriteLine($"Produto #{countProd}:\n");
