@@ -50,7 +50,7 @@ namespace ListaDeProdutosComArquivos.Menus
             {
                 Console.Write("Digite o nome da pasta: ");
                 string folderName = Console.ReadLine();
-                string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string directoryPath = $@"E:\Curso C# POO\ListaDeProdutosComArquivos\{folderName?.ToUpper()[0]}{folderName?.Substring(1)}\";
 
                 if (!Directory.Exists(directoryPath))
                 {
@@ -128,7 +128,6 @@ namespace ListaDeProdutosComArquivos.Menus
                     Console.Clear();
                     Console.WriteLine("Arquivo Existente! Escolha outro nome\n");
                 }
-            }
             }
         }
 
