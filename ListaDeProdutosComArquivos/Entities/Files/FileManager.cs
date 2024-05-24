@@ -9,7 +9,8 @@ namespace ListaDeProdutosComArquivos.Entities.Files
 {
     internal static class FileManager
     {
-        static readonly string myDocumentsFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        static readonly string MyDocumentsFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        static readonly List<string> ListFolders = new List<string>();
 
         public static void CreateFolder()
         {
@@ -18,7 +19,7 @@ namespace ListaDeProdutosComArquivos.Entities.Files
             {
                 Console.Write("Digite o nome da pasta: ");
                 string folderName = Console.ReadLine();
-                string directoryPath = Path.Combine(myDocumentsFolder, char.ToUpper(folderName[0]) + folderName.Substring(1));
+                string directoryPath = Path.Combine(MyDocumentsFolder, char.ToUpper(folderName[0]) + folderName.Substring(1));
 
                 if (VerifyDirectory(directoryPath))
                 {
@@ -49,7 +50,7 @@ namespace ListaDeProdutosComArquivos.Entities.Files
                     return;
                 }
 
-                string folderPath = Path.Combine(myDocumentsFolder, char.ToUpper(folderName[0]) + folderName.Substring(1));
+                string folderPath = Path.Combine(MyDocumentsFolder, char.ToUpper(folderName[0]) + folderName.Substring(1));
 
                 string[] files = Directory.GetFiles(folderPath);
 
@@ -163,11 +164,11 @@ namespace ListaDeProdutosComArquivos.Entities.Files
 
         static void ListFolder()
         {
-            string[] listFolders = Directory.GetDirectories(myDocumentsFolder);
+            string[] listFolders = Directory.GetDirectories(MyDocumentsFolder);
 
             for (int i = 0; i < listFolders.Length; i++)
             {
-                Console.WriteLine($"{i + 1}. {listFolders[i]}");
+                ListFolders.Add(listFolders[i]);
             }
             Console.WriteLine();
         }
@@ -208,7 +209,7 @@ namespace ListaDeProdutosComArquivos.Entities.Files
                 }
 
                 string filePath = Path.Combine(path, $"{char.ToUpper(fileName[0])}{fileName.Substring(1)}.{extension}");
-                if (!File.Exists(filePath))
+                if (!File.Exists(filePath) && !VerifyDirectory(path))
                 {
                     try
                     {
@@ -238,7 +239,7 @@ namespace ListaDeProdutosComArquivos.Entities.Files
                 else
                 {
                     Console.Clear();
-                    Console.WriteLine("Arquivo Existente! Escolha outro nome\n");
+                    Console.WriteLine("Arquivo existente! Escolha outro nome\n");
                 }
             }
         }
