@@ -22,7 +22,7 @@ namespace ListaDeProdutosComArquivos.Menus
                 Console.WriteLine("\t\tBem-Vindo!\n");
                 Console.WriteLine("==================================================\n");
                 Console.WriteLine("Selecione algumas das opções abaixo:\n");
-                Console.WriteLine("1) Criar uma pasta\n2) Criar um arquivo\n3) Abrir um arquivo existente\n");
+                Console.WriteLine("1) Criar uma pasta\n2) Criar um arquivo\n3) Deletar alguma pasta\n");
                 Console.Write("Opção: ");
                 char option = char.ToLower(Console.ReadKey().KeyChar);
                 Console.WriteLine();
