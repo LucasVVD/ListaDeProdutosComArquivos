@@ -8,9 +8,9 @@ namespace ListaDeProdutosComArquivos.Entities.Enums
 {
     enum Category : int
     {
-        Alimento,
-        Eletrodomestico,
-        Celular,
-        Movel,
+        Alimento = 1,
+        Eletrodomestico = 2,
+        Celular = 3,
+        Movel = 4,
     }
 }
