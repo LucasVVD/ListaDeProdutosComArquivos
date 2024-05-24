@@ -95,6 +95,72 @@ namespace ListaDeProdutosComArquivos.Entities.Files
             }
         }
 
+        public static void DeleteFolder()
+        {
+            try
+            {
+                Console.WriteLine("\nPastas:");
+                ListFolder();
+                for (int i = 0; i < ListFolders.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}. {ListFolders[i]}");
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("Deixe o campo vazio se deseja sair.");
+                Console.Write("Digite o número específicado para deletar: ");
+                if (int.TryParse(Console.ReadLine(), out int selectedIndex) && selectedIndex > 0 && selectedIndex <= ListFolders.Count)
+                {
+                    string folderToDelete = ListFolders[selectedIndex - 1];
+                    if (Directory.Exists(folderToDelete))
+                    {
+                        bool leave = false;
+                        while (!leave)
+                        {
+                            if (Directory.GetFiles(folderToDelete).Length == 0 && Directory.GetDirectories(folderToDelete).Length == 0)
+                            {
+                                Directory.Delete(folderToDelete);
+                                Console.WriteLine($"Pasta '{folderToDelete} deletada'");
+                                ClearConsole.Cooldown();
+                                leave = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Essa pasta não esta vazia");
+                                Console.WriteLine("Deseja deletar mesmo assim?");
+                                Console.Write("s/n ");
+                                char option = char.ToLower(Console.ReadKey().KeyChar);
+                                Console.WriteLine();
+
+                                switch (option)
+                                {
+                                    case 's':
+                                        Directory.Delete(folderToDelete, true);
+                                        Console.WriteLine();
+                                        Console.WriteLine($"Pasta '{folderToDelete}' deletada.");
+                                        ClearConsole.Cooldown();
+                                        leave = true;
+                                        break;
+                                    case 'n':
+                                        ClearConsole.Cooldown();
+                                        leave = true;
+                                        break;
+                                    default:
+                                        Console.WriteLine("Use as teclas 's' e 'n' do seu teclado para dar continuidade");
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+                ListFolders.Clear();
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
         static void ListFolder()
         {
             string[] listFolders = Directory.GetDirectories(myDocumentsFolder);
