@@ -164,13 +164,9 @@ namespace ListaDeProdutosComArquivos.Entities.Files
 
         static void ListFolder()
         {
-            string[] listFolders = Directory.GetDirectories(MyDocumentsFolder);
-
-            for (int i = 0; i < listFolders.Length; i++)
-            {
-                ListFolders.Add(listFolders[i]);
-            }
             Console.WriteLine();
+            ListFolders.Clear();
+            ListFolders.AddRange(Directory.GetDirectories(MyDocumentsFolder));
         }
 
         public static void CreateFile(string path)
