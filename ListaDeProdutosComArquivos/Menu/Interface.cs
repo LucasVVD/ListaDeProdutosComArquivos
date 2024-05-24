@@ -35,9 +35,9 @@ namespace ListaDeProdutosComArquivos.Menus
                     case '2':
                         FileManager.ListFiles();
                         break;
-                    //case '3':
-                    //    FileManager.CreateFile();
-                    //    break;
+                    case '3':
+                        FileManager.DeleteFolder();
+                        break;
                     case '4':
                         leave = true;
                         break;
