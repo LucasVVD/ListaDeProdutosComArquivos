@@ -41,9 +41,11 @@ namespace ListaDeProdutosComArquivos.Entities.Files
             try
             {
                 string folderName = Console.ReadLine();
-                if (VerifyDirectory(folderName))
+                if (VerifyEmptyStrings(folderName))
                 {
-                    Console.WriteLine("O campo não pode estar vazio");
+                    Console.WriteLine("O campo não pode estar vazio.");
+                    Console.WriteLine("Redirecionando para o Menu inicial.\n");
+                    ClearConsole.Cooldown();
                     return;
                 }
 
