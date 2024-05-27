@@ -98,6 +98,7 @@ namespace ListaDeProdutosComArquivos.Entities.Files
 
         public static void DeleteFolder()
         {
+            Console.Clear();
             try
             {
                 Console.WriteLine("Pastas:");
