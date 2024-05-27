@@ -19,7 +19,7 @@ namespace ListaDeProdutosComArquivos.Entities.Files
             {
                 Console.Write("Digite o nome da pasta: ");
                 string folderName = Console.ReadLine();
-                string directoryPath = Path.Combine(MyDocumentsFolder, char.ToUpper(folderName[0]) + folderName.Substring(1));
+                string directoryPath = Path.Combine(MyDocumentsFolder, FirstLetterToUpper(folderName));
 
                 if (VerifyDirectory(directoryPath))
                 {
@@ -50,7 +50,7 @@ namespace ListaDeProdutosComArquivos.Entities.Files
                     return;
                 }
 
-                string folderPath = Path.Combine(MyDocumentsFolder, char.ToUpper(folderName[0]) + folderName.Substring(1));
+                string folderPath = Path.Combine(MyDocumentsFolder, FirstLetterToUpper(folderName));
 
                 string[] files = Directory.GetFiles(folderPath);
 
