@@ -213,8 +213,8 @@ namespace ListaDeProdutosComArquivos.Entities.Files
                     continue;
                 }
 
-                string filePath = Path.Combine(path, $"{char.ToUpper(fileName[0])}{fileName.Substring(1)}.{extension}");
-                if (!File.Exists(filePath) && !VerifyDirectory(path))
+                string filePath = Path.Combine(path, $"{FirstLetterToUpper(fileName)}.{extension}");
+                if (!File.Exists(filePath) && !Directory.Exists(path))
                 {
                     try
                     {
