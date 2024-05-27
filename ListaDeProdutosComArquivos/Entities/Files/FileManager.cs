@@ -154,6 +154,11 @@ namespace ListaDeProdutosComArquivos.Entities.Files
                         }
                     }
                 }
+                else
+                {
+                    Console.WriteLine("\nNenhuma pasta selecionada");
+                    ClearConsole.Cooldown();
+                }
                 ListFolders.Clear();
             }
             catch (IOException e)
