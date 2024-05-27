@@ -11,7 +11,7 @@ using ListaDeProdutosComArquivos.Entities.ClearConsoleCooldown;
 
 namespace ListaDeProdutosComArquivos.Menus
 {
-    internal class Interface
+    internal static class Interface
     {
         public static void Menu()
         {
