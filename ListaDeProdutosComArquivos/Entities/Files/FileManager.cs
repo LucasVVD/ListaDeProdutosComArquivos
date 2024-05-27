@@ -21,7 +21,7 @@ namespace ListaDeProdutosComArquivos.Entities.Files
                 string folderName = Console.ReadLine();
                 string directoryPath = Path.Combine(MyDocumentsFolder, FirstLetterToUpper(folderName));
 
-                if (VerifyDirectory(directoryPath))
+                if (!Directory.Exists(directoryPath))
                 {
                     Directory.CreateDirectory(directoryPath);
                     Console.WriteLine($"Pasta criada com sucesso no diretório: {directoryPath}\n");
@@ -42,7 +42,7 @@ namespace ListaDeProdutosComArquivos.Entities.Files
             try
             {
                 string folderName = Console.ReadLine();
-                if (VerifyEmptyStrings(folderName))
+                if (string.IsNullOrEmpty(folderName))
                 {
                     Console.WriteLine("O campo não pode estar vazio.");
                     Console.WriteLine("Redirecionando para o Menu inicial.\n");
