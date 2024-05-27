@@ -280,9 +280,9 @@ namespace ListaDeProdutosComArquivos.Entities.Files
             return !Directory.Exists(path);
         }
 
-        static bool VerifyEmptyStrings(string name)
+        static string FirstLetterToUpper(string letter)
         {
-            return string.IsNullOrEmpty(name);
+            return char.ToUpper(letter[0]) + letter[1..];
         }
     }
 }
