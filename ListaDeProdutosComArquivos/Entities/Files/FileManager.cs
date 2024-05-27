@@ -100,10 +100,13 @@ namespace ListaDeProdutosComArquivos.Entities.Files
         {
             try
             {
-                Console.WriteLine("\nPastas:");
+                Console.WriteLine("Pastas:");
+                Console.WriteLine("Aguardando...");
+                Task.Delay(2000).Wait();
                 ListFolder();
                 for (int i = 0; i < ListFolders.Count; i++)
                 {
+                    Task.Delay(100).Wait();
                     Console.WriteLine($"{i + 1}. {ListFolders[i]}");
                 }
 
