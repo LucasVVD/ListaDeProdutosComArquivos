@@ -276,11 +276,6 @@ namespace ListaDeProdutosComArquivos.Entities.Files
             }
         }
 
-        static bool VerifyDirectory(string? path)
-        {
-            return !Directory.Exists(path);
-        }
-
         static string FirstLetterToUpper(string letter)
         {
             return char.ToUpper(letter[0]) + letter[1..];
