@@ -107,6 +107,7 @@ namespace ListaDeProdutosComArquivos.Entities.Files
                     Console.WriteLine($"{i + 1}. {ListFolders[i]}");
                 }
 
+                Console.WriteLine($"\n{ListFolders.Count} pastas encontradas");
                 Console.WriteLine();
                 Console.WriteLine("Deixe o campo vazio se deseja sair.");
                 Console.Write("Digite o número específicado para deletar: ");
